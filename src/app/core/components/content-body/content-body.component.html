@@ -1,0 +1,31 @@
+<div id="content-body">
+    <aside>
+        <div class="data-user">
+            <div class="icon-person">
+
+            </div>
+            
+            <div class="title" *ngIf="dataUser">               
+                <h5>
+                    {{dataUser.name}}
+                </h5>
+                <p>Data de hoje</p>
+                <a (click)="logout()" href="#">Logout</a>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-categories">
+                <li routerLink="form"> Create List + </li>
+                <li  *ngFor="let item of menu">
+                    <a [routerLink]="item.page">
+                        <circle-color [category]="item.page"></circle-color> {{item.title}}
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <ng-content></ng-content>
+    </main>
+</div>

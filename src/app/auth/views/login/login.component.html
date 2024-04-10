@@ -1,0 +1,29 @@
+<div class="cta-login">
+  <div class="cta-box-login">
+
+    <h2 class="center">
+      ORIUM TASKS 1
+      <img id="logo" src="../../../../assets/images/orium.png" alt="Orium Logotipo">
+    </h2>
+
+    <div class="cta-logo animated flipInX delay-1s slower">
+    </div>
+    <form [formGroup]="loginForm">
+      <label for="email">E-mail</label>
+      <input id="email" class="form-control" type="email" formControlName="email">
+
+      <label for="password">Password</label>
+      <input id="password" class="form-control" type="password" formControlName="password">
+      <div class="warning-login" *ngIf="loginForm.invalid">
+        <p [ngClass]="loginForm.value.email === null ? '' : 'destaque-color' ">
+          Please, type a valid email
+        </p>
+        <p [ngClass]="loginForm.value.password=== null ? '' : 'destaque-color' ">
+          Password must be at least 6 characters
+        </p>
+      </div>
+      <button class="btn btn-primary btn-lg" (click)="requestLogin()">Entrar</button>
+      <button class="mt-2 btn  btn-outline-light btn-lg" routerLink="register">Register</button>
+    </form>
+  </div>
+</div>
